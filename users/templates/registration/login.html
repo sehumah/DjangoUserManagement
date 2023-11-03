@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>Login</h2>
+
+    <form method="post" action="">
+
+        <!-- add protection against CSRF. required by every Django form -->
+        {% csrf_token %}
+
+        <!-- {{ form.as_p }} will render the form as a series of HTML paragraphs, making it look a bit nicer than just {{ form }} -->
+        {{ form.as_p }}
+
+        <input type="submit" value="Login">
+    </form>
+
+    <a href="{% url 'dashboard' %}">Back to dashboard</a>
+    <a href="{% url 'password_reset' %}">Reset password</a>
+    <a href="{% url 'register' %}">Register</a>
+
+{% endblock content %}
